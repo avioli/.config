@@ -1,0 +1,3 @@
+set vertical-split = horizontal
+bind generic 9 !@sh -c "/bin/echo -n %(commit) | pbcopy"
+bind generic + !git commit --amend
