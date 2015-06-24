@@ -16,7 +16,7 @@ set -gx TIGRC_USER ~/.config/tig/config
 
 # task
 set -gx TASKRC ~/.config/task/config
-set -gx TASKDATA /Volumes/WD1TB/Dropbox/Evo/.task
+. ~/.config/task/local-config.fish
 
 # Local bin
 set -gx PATH ~/bin $PATH
