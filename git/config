@@ -1,0 +1,23 @@
+[alias]
+	co = checkout
+	com = commit -am
+	br = branch
+	st = status
+	aa = add --all
+	rc = log --graph --color=always --date-order --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' -10
+	di = diff --color=always
+	dc = diff --color=always --cached
+	ci = commit
+	change = diff --name-status
+	ribbon = tag --force _ribbon origin/master
+	catchup = log --patch --reverse --topo-order --first-parent -m _ribbon..origin/master
+	lip = commit -m ":lipstik:"
+[core]
+	editor = vim
+	excludesfile = ~/.config/git/gitignore_global
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[push]
+	default = simple
