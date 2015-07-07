@@ -5,7 +5,7 @@ set -gx PATH ~/pear/bin $PATH
 set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
 
 # init rbenv
-#rbenv-init
+rbenv-init
 
 # mpw
 set -gx MP_FULLNAME "Evo Stamatov"
@@ -24,7 +24,7 @@ set -gx PATH ~/bin $PATH
 # STARTUP
 #########
 # check rbenv
-#rbenv-check-notice once
+rbenv-check-notice once
 
 # list tasks
 tasks-remind
