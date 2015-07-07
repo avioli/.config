@@ -14,7 +14,7 @@ Plugin 'EasyGrep'                                                               
 "Plugin 'VimClojure'                                                             " clojure wrapper
 "Plugin 'wincent/Command-T'                                                      " file grepper
 "Plugin 'airblade/fuzzyfinder_textmate.git'                                      " fuzzyfinder textmate style
-"Plugin 'kien/ctrlp.vim.git'                                                     " ctrl-p fuzzyfinder
+Plugin 'kien/ctrlp.vim.git'                                                     " ctrl-p fuzzyfinder
 "Plugin 'Shougo/unite.vim'                                                       " similar to fuzzyfinder and ctrl-p file grepper
 Plugin 'airblade/vim-rooter.git'                                                " cwd change to project root
 Plugin 'altercation/vim-colors-solarized.git'                                   " solarized colour scheme
