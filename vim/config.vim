@@ -520,6 +520,21 @@ let g:rooter_manual_only = 1
 
 " }}}
 
+"======== ChompWhitespace {{{1
+"============================
+
+function! ChompWhitespace()
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunction
+command! -nargs=0 ChompWhitespace call ChompWhitespace()
+
+" }}}
+
 "======== AT THE END OF VIMRC {{{1
 "============================
 
