@@ -1,3 +1,6 @@
+# set default editor
+set -gx EDITOR vim
+
 # add pear to path
 set -gx PATH ~/pear/bin $PATH
 
@@ -21,11 +24,24 @@ set -gx TASKRC ~/.config/task/config
 # Local bin
 set -gx PATH ~/bin $PATH
 
+# Gost cli gist generator
+set -gx GOST (cat ~/.private/gost/token)
+
+# Cheat
+set -gx DEFAULT_CHEAT_DIR ~/.config/cheat
+set -gx CHEATCOLORS=true
+
 # STARTUP
 #########
-# check rbenv
-rbenv-check-notice once
+if test -n "$DONT_TMUX" -o -n "$TMUX"
+  # check rbenv
+  rbenv-check-notice once
 
-# list tasks
-tasks-remind
+  # list tasks
+  tasks-remind
+end
+
+if test -z "$DONT_TMUX" -a -z "$TMUX"
+  tmux attach; or play
+end
 
