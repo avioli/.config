@@ -1,3 +1,5 @@
+if test -z "$FISH_DONT_INIT"
+
 # set default editor
 set -gx EDITOR vim
 
@@ -24,7 +26,7 @@ set -gx TASKRC ~/.config/task/config
 # Local bin
 set -gx PATH ~/bin $PATH
 
-# Gost cli gist generator
+# Gost cli -- github gist generator
 set -gx GOST (cat ~/.private/gost/token)
 
 # Cheat
@@ -33,15 +35,16 @@ set -gx CHEATCOLORS=true
 
 # STARTUP
 #########
-if test -n "$DONT_TMUX" -o -n "$TMUX"
+if test -n "$TMUX"
+  # only withing TMUX or in case DONT_TMUX is set
   # check rbenv
   rbenv-check-notice once
 
   # list tasks
   tasks-remind
-end
-
-if test -z "$DONT_TMUX" -a -z "$TMUX"
+else
+  # attach TMUX
   tmux attach; or play
 end
 
+end
