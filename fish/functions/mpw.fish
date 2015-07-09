@@ -81,5 +81,12 @@ function mpw -d "Extends mpw to store the sitename for later recall"
   if test $found -eq 0
     echo $pargs[1] >> $MPW_SITENAMES
     echo "Stored" $pargs[1]
+
+    # encrypt the file
+    # if hash openssl 2>/dev/null
+    #   if test -f "$MPW_SITENAMES.aes256"
+    #     openssl enc -aes256 -e -in "$MPW_SITENAMES" -out "$MPW_SITENAMES.aes256"
+    #   end
+    # end
   end
 end
