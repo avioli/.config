@@ -56,6 +56,8 @@ Plugin 'honza/vim-snippets'                                                     
 Plugin 'tpope/vim-abolish'                                                      " camel case to snake case: crc, crs, crm
 Plugin 'terryma/vim-multiple-cursors'                                           " multiple cursors
 Plugin 'mhinz/vim-startify'                                                     " startup dashboard for vim
+Plugin 'rust-lang/rust.vim'                                                     " rust syntax
+Plugin 'leafgarland/typescript-vim.git'                                         " typescript syntax
 
 " vim.org
 " project => http://www.vim.org/scripts/script.php?script_id=69
