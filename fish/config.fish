@@ -33,6 +33,13 @@ set -gx GOST (cat ~/.private/gost/token)
 set -gx DEFAULT_CHEAT_DIR ~/.config/cheat
 set -gx CHEATCOLORS=true
 
+# haskell
+# Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
+set -gx GHC_DOT_APP ~/Applications/ghc-7.8.4.app
+if [ -d "$GHC_DOT_APP" ]
+    set -gx PATH ~/.cabal/bin $GHC_DOT_APP/Contents/bin $PATH
+end
+
 # STARTUP
 #########
 if test -n "$TMUX"
