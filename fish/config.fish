@@ -1,4 +1,5 @@
-if test -z "$FISH_DONT_INIT"
+# only run if tty is interactive and FISH_DONT_INIT isn't set
+if test -t 0 -a -z "$FISH_DONT_INIT"
 
 # set default editor
 set -gx EDITOR vim
