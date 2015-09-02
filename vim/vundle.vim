@@ -58,6 +58,7 @@ Plugin 'terryma/vim-multiple-cursors'                                           
 Plugin 'mhinz/vim-startify'                                                     " startup dashboard for vim
 Plugin 'rust-lang/rust.vim'                                                     " rust syntax
 Plugin 'leafgarland/typescript-vim.git'                                         " typescript syntax
+Plugin 'elzr/vim-json'                                                          " json syntax + concealer
 
 " vim.org
 " project => http://www.vim.org/scripts/script.php?script_id=69
