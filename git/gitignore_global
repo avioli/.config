@@ -57,3 +57,7 @@ __pycache__
 civicrm-extensions/*
 civicrm_extensions/*
 civicrm-pin-payments/*
+
+# NPM #
+#######
+node_modules/*
