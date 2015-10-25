@@ -8,7 +8,8 @@ set -gx EDITOR vim
 set -gx PATH ~/pear/bin $PATH
 
 # add android sdk tools to path
-set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
+#set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
+set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
 
 # init rbenv
 rbenv-init
