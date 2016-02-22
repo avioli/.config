@@ -56,4 +56,6 @@ else
   tmux attach; or play
 end
 
+test -e ~/.config/fish/config.local.fish; and . ~/.config/fish/config.local.fish
+
 end
