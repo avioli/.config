@@ -42,6 +42,9 @@ if [ -d "$GHC_DOT_APP" ]
     set -gx PATH ~/.cabal/bin $GHC_DOT_APP/Contents/bin $PATH
 end
 
+# dep: brew install jump
+status --is-interactive; and . (jump shell fish | psub)
+
 # STARTUP
 #########
 if test -n "$TMUX"
