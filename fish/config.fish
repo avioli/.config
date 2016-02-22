@@ -23,7 +23,7 @@ set -gx TIGRC_USER ~/.config/tig/config
 
 # task
 set -gx TASKRC ~/.config/task/config
-#. ~/.config/task/local-config.fish
+test -e ~/.config/task/local-config.fish; and . ~/.config/task/local-config.fish
 
 # Local bin
 set -gx PATH ~/bin $PATH
