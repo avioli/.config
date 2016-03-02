@@ -54,6 +54,12 @@ if test -n "$TMUX"
 
   # list tasks
   tasks-remind
+
+  # virtualfish -- python virtualenv helper
+  if set -l vf (python -m virtualfish)
+    eval $vf
+  end
+
 else
   # attach TMUX
   tmux attach; or play
