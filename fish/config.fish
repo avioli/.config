@@ -45,6 +45,9 @@ end
 # dep: brew install jump
 status --is-interactive; and . (jump shell fish | psub)
 
+# disable virtualenv prompt hack
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+
 # STARTUP
 #########
 if test -n "$TMUX"
