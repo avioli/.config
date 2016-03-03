@@ -31,7 +31,7 @@ function git-timelog --description "Go through all git repos within current dir 
 
     echo -n $dir\r >&2
 
-    set -l logged (git --git-dir "$gitdir" log --date=short --pretty=format:"%<(12)%ad%<(10,trunc)%cN %<(30)%aE %h %<(80,trunc)%s" -10 $argv 2> /dev/null)
+    set -l logged (git --git-dir "$gitdir" log --date=iso --pretty=format:"%<(26)%ad%<(10,trunc)%cN %<(30)%aE %h %<(80,trunc)%s" -10 $argv 2> /dev/null)
 
     if test -n "$logged"
       echo $dir
