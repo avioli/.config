@@ -21,6 +21,13 @@ function fish_prompt --description 'Write out the prompt'
 
         set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
 
-        echo -n -s "$USER" @ "$__fish_prompt_hostname" ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) "[$git_branch]$suffix "
+        if set -q VIRTUAL_ENV
+                echo -n -s (set_color normal) '(' (set_color -o white) (basename $VIRTUAL_ENV) (set_color normal) ')' ' '
+        end
+
+        echo -n -s $USER @ $__fish_prompt_hostname ' '
+        echo -n -s (set_color $color_cwd) (prompt_pwd) (set_color normal)
+        echo -n -s '[' $git_branch ']'
+        echo -n -s $suffix ' '
 end
 
