@@ -11,7 +11,8 @@ set -gx EDITOR vim
 set -gx PATH ~/pear/bin $PATH
 
 # add android sdk tools to path
-set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
+#set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
+set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
 
 # init rbenv
 rbenv-init
@@ -25,7 +26,7 @@ set -gx TIGRC_USER ~/.config/tig/config
 
 # task
 set -gx TASKRC ~/.config/task/config
-. ~/.config/task/local-config.fish
+test -e ~/.config/task/local-config.fish; and . ~/.config/task/local-config.fish
 
 # Local bin
 set -gx PATH ~/bin $PATH
@@ -44,7 +45,8 @@ if [ -d "$GHC_DOT_APP" ]
     set -gx PATH ~/.cabal/bin $GHC_DOT_APP/Contents/bin $PATH
 end
 
-. ~/.config/local-config.fish
+# dep: brew install jump
+status --is-interactive; and . (jump shell fish | psub)
 
 # STARTUP
 #########
@@ -63,5 +65,7 @@ else
     echo "No tmux"
   end
 end
+
+test -e ~/.config/fish/config.local.fish; and . ~/.config/fish/config.local.fish
 
 end
