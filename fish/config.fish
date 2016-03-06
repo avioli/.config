@@ -1,3 +1,6 @@
+# set default config path
+set -gx XDG_CONFIG_HOME ~/.config
+
 # only run if tty is interactive and FISH_DONT_INIT isn't set
 if test -t 0 -a -z "$FISH_DONT_INIT"
 
@@ -28,7 +31,7 @@ set -gx TASKRC ~/.config/task/config
 set -gx PATH ~/bin $PATH
 
 # Gost cli -- github gist generator
-set -gx GOST (cat ~/.private/gost/token)
+test -f ~/.private/gost/token; and set -gx GOST (cat ~/.private/gost/token)
 
 # Cheat
 set -gx DEFAULT_CHEAT_DIR ~/.config/cheat
@@ -41,6 +44,8 @@ if [ -d "$GHC_DOT_APP" ]
     set -gx PATH ~/.cabal/bin $GHC_DOT_APP/Contents/bin $PATH
 end
 
+. ~/.config/local-config.fish
+
 # STARTUP
 #########
 if test -n "$TMUX"
@@ -49,10 +54,14 @@ if test -n "$TMUX"
   rbenv-check-notice once
 
   # list tasks
-  tasks-remind
+  #tasks-remind
 else
   # attach TMUX
-  tmux attach; or play
+  if hash tmux 2>/dev/null
+    tmux attach; or play
+  else
+    echo "No tmux"
+  end
 end
 
 end
