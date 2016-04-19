@@ -1,0 +1,27 @@
+""""""""""""""
+""" ViM config
+""""""""""""""
+
+" skip init for vim-tiny or vim-small
+if !1 | finish | endif
+
+try | execute "source " . expand($XDG_CONFIG_HOME . '/vim/plugins.vim') | catch | endtry
+try | execute "source " . expand($XDG_CONFIG_HOME . '/vim/sensible.vim') | catch | endtry
+
+" change the <leader> key from \ to ,
+let mapleader = ","
+
+" highlight current line
+set cursorline
+
+" custom autocmds
+augroup savepos
+  autocmd!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup end
+
+" vim:set ft=vim et sw=2:
