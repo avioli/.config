@@ -1,7 +1,9 @@
-# set default config path
+# set explicit config path
 set -gx XDG_CONFIG_HOME $HOME/.config
-# set default data path
+# set explicit data path
 set -gx XDG_DATA_HOME $HOME/.local/share
+# set explicit cache path
+set -gx XDG_CACHE_HOME $HOME/.cache
 
 # only run if tty is interactive and FISH_DONT_INIT isn't set
 if test -t 0 -a -z "$FISH_DONT_INIT"
@@ -28,11 +30,11 @@ set -gx MP_FULLNAME "Evo Stamatov"
 mpw-init
 
 # setup tig's config file
-set -gx TIGRC_USER ~/.config/tig/config
+set -gx TIGRC_USER $XDG_CONFIG_HOME/tig/config
 
 # task
-set -gx TASKRC ~/.config/task/config
-test -e ~/.config/task/local-config.fish; and . ~/.config/task/local-config.fish
+set -gx TASKRC $XDG_CONFIG_HOME/task/config
+test -e $XDG_CONFIG_HOME/task/local-config.fish; and . $XDG_CONFIG_HOME/task/local-config.fish
 
 # Local bin
 set -gx PATH ~/bin $PATH
@@ -41,7 +43,7 @@ set -gx PATH ~/bin $PATH
 test -f ~/.private/gost/token; and set -gx GOST (cat ~/.private/gost/token)
 
 # Cheat
-set -gx DEFAULT_CHEAT_DIR ~/.config/cheat
+set -gx DEFAULT_CHEAT_DIR $XDG_CONFIG_HOME/cheat
 set -gx CHEATCOLORS=true
 
 # haskell
@@ -80,6 +82,6 @@ else
   end
 end
 
-test -e ~/.config/fish/config.local.fish; and . ~/.config/fish/config.local.fish
+test -e $XDG_CONFIG_HOME/fish/config.local.fish; and . $XDG_CONFIG_HOME/fish/config.local.fish
 
 end
