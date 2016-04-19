@@ -1,5 +1,5 @@
 # set default config path
-set -gx XDG_CONFIG_HOME ~/.config
+set -gx XDG_CONFIG_HOME $HOME/.config
 
 # only run if tty is interactive and FISH_DONT_INIT isn't set
 if test -t 0 -a -z "$FISH_DONT_INIT"
