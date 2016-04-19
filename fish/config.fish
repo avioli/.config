@@ -14,6 +14,10 @@ set -gx PATH ~/pear/bin $PATH
 #set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
 set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
 
+# add go's root
+set -gx GOPATH $HOME/go
+set -gx PATH $GOPATH/bin $PATH
+
 # init rbenv
 rbenv-init
 
