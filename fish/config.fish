@@ -22,6 +22,9 @@ set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
 set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+# dasht docsets dir
+set -gx DASHT_DOCSETS_DIR $XDG_CACHE_HOME
+
 # init rbenv
 rbenv-init
 
