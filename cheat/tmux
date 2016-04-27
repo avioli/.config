@@ -1,23 +1,8 @@
-# Personal
-# ========
-
-# Start/Restore/Switch tmux play session:
-play
-
-# Start/Restore/Switch tmux work session:
-work
-
-# Detach from current session
-detach
-
-# Generic
-# =======
-
 # Start tmux:
 tmux
 
 # Detach from tmux:
-Ctrl-a d
+Ctrl-b d
 
 # Restore tmux session:
 tmux attach
@@ -28,35 +13,41 @@ tmux attach -d
 # Display session:
 tmux ls
 
+# Rename session:
+Ctrl-b $
+
+# Switch session:
+Ctrl-b s
+
 # Start a shared session:
 tmux -S /tmp/your_shared_session
 chmod 777 /tmp/your_shared_session
 
 # Help screen (Q to quit):
-Ctrl-a ?
+Ctrl-b ?
 
 # Scroll in window:
-Ctrl-a PageUp/PageDown
+Ctrl-b PageUp/PageDown
 
 # Reload configuation file
-Ctrl-a : source-file /path/to/file
+Ctrl-b : source-file /path/to/file
 
 # Window management
 # =================
 
 # Create window:
-Ctrl-a c
+Ctrl-b c
 
 # Destroy window:
-Ctrl-a x
+Ctrl-b x
 
 # Switch between windows:
-Ctrl-a [0-9]
+Ctrl-b [0-9]
 or
-Ctrl-a Arrows
+Ctrl-b Arrows
 
 # Split windows horizontally:
-Ctrl-a %
+Ctrl-b %
 
 # Split windows vertically:
-Ctrl-a "
+Ctrl-b "
