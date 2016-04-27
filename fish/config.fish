@@ -90,4 +90,9 @@ end
 
 test -e $XDG_CONFIG_HOME/fish/config.local.fish; and . $XDG_CONFIG_HOME/fish/config.local.fish
 
+# fisherman
+for file in ~/.config/fish/conf.d/*.fish
+    source $file
+end
+
 end
