@@ -23,7 +23,7 @@ set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
 # dasht docsets dir
-set -gx DASHT_DOCSETS_DIR $XDG_CACHE_HOME
+set -gx DASHT_DOCSETS_DIR $XDG_CACHE_HOME/dasht
 
 # init rbenv
 rbenv-init
