@@ -18,6 +18,9 @@ set -gx PATH ~/pear/bin $PATH
 #set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
 set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
 
+# add racket to path
+set -gx PATH ~/Applications/Racket\ v6.4/bin $PATH
+
 # add go's root
 set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
