@@ -1,4 +1,4 @@
-# To set your identity:
+# To set your identify:
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 
@@ -16,25 +16,27 @@ git commit -m "Your commit message"
 
 # To edit previous commit message
 git commit --amend
-
-# Git commit in the past
-git commit --date="`date --date='2 day ago'`"
-git commit --date="Jun 13 18:30:25 IST 2015"
-# more recent versions of Git also support --date="2 days ago" directly
-
-# To change the date of an existing commit
-git filter-branch --env-filter \
-    'if [ $GIT_COMMIT = 119f9ecf58069b265ab22f1f97d2b648faf932e0 ]
-     then
-         export GIT_AUTHOR_DATE="Fri Jan 2 21:38:53 2009 -0800"
-         export GIT_COMMITTER_DATE="Sat May 19 01:01:01 2007 -0700"
-     fi'
+# Fix your typo
+# Stage the newly fixed file via git add some-fixed-file.ext
+# Run git commit --amend which would add the most recent changes to your latest commit. It will also give you a chance to edit the commit message
+# Push the clean branch to remote, when ready
 
 # To removed staged and working directory changes
-git reset --hard
-
-# To go 2 commits back
-git reset --hard HEAD~2
+git reset --hard  {{some-commit-hash}} # Return to a particular point in history.
+                                       # All changes made after this commit are discarded.
+git reset {{some-commit-hash}}         # Return to a particular point in history.
+                                       # All changes made after this commit are moved "not yet staged for commit" stage.
+                                       # Meaning you would have to run git add . and git commit to add them back in.
+git reset --soft {{some-commit-hash}}  # Return to a particular point in history.
+                                       # All changes made after this commit are moved to "staged for commit" stage.
+                                       # Meaning you only need to run git commit to add them back in.
+# Common use cases that I find myself using the reset are bellow:
+# I want to forget all the changes I’ve made, clean start 
+git reset --hard HEAD (Most common)
+# I want to edit, re-stage and re-commit files in some different order
+git reset {{some-start-point-hash}}
+# I just want to re commit past 3 commits, as one big commit
+git reset --soft {{some-start-point-hash}}
 
 # To remove untracked files
 git clean -f -d
@@ -50,9 +52,6 @@ git push git@github.com:username/project.git
 
 # To delete the branch "branch_name"
 git branch -D branch_name
-
-# To make an exisiting branch track a remote branch
-git branch -u upstream/foo
 
 # To see who commited which line in a file
 git blame filename
@@ -77,30 +76,60 @@ git log --pretty=email --patch-with-stat --reverse --full-index -- Admin\*.py > 
 # Import commits from another repo
 git --git-dir=../some_other_repo/.git format-patch -k -1 --stdout <commit SHA> | git am -3 -k
 
-# View commits that will be pushed
-git log @{u}..
+# NEW additions:
 
-# View changes that are new on a feature branch
-git log -p feature --not master
-git diff master...feature
+# Force git to first pull the changes, and then re-apply(rebase) your un-pushed commits on top of the latest version of the remote branch, as if they just took place
+git pull --rebase
 
-# Interactive rebase for the last 7 commits
-git rebase -i @~7
+# Short status
+git status -s
 
-# Diff files WITHOUT considering them a part of git
-# This can be used to diff files that are not in a git repo!
-git diff --no-index path/to/file/A path/to/file/B
+# Reset certain files to a commit
+git checkout forget-my-changes.ext
+git checkout some-branch-name file-name.ext
+git checkout {{some-commit-hash}} file-name.ext
 
-# To pull changes while overwriting any local commits
-git fetch --all
-git reset --hard origin/master
+# Revert a commit, softly
+git revert -n # -n to not commit, but leave the changes
 
-# Update all your submodules
-git submodule update --init --recursive
+# Diff the entire project (not just one file at a time) in a 3rd party diff tool
+git difftool -d # -d for the whole dirs, not just the files
 
-# Perform a shallow clone to only get latest commits
-# (helps save data when cloning large repos)
-git clone --depth 1 <remote-url>
+# Ignore the white space
+git diff -w
+git blame -w
 
-# To unshallow a clone
-git pull --unshallow
+# Only add some changes from a file
+git add -p # interactively asks what to add. use ? to check the options
+
+# Get a list of all the remote branches, and the list of last commits made on those branches
+git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'
+
+# Stash only some files
+git stash -p # interactively asks what to stash. use ? to check the options
+
+# or
+# 1. Add the files that you DO NOT want to get stashed (i.e. `git add file1.ext file2.ext`)
+# 2. Call `git stash --keep-index`. It will only stash files that have not been added.
+git stash —keep-index
+# 3. Call `git reset` to un-stage the added files and continue your work.
+
+# Log
+git log --oneline --graph
+# --author="Author Name" – Only show commits made by a certain author
+# --name-only            – Only show names of files that changed
+# --oneline              – Show commit data compressed to one line
+# --graph                – Show dependency tree for all commits
+# --reverse              – Show commits in reverse order (Oldest commit first)
+# --after                – Show all commits that happened after certain date
+# --before               – Show all commits that happened before certain data
+
+# Log actual changes in a file
+git log -p {{filename}}
+
+# Only Log changes for some specific lines in a file
+git log -L 1,1:some-file.ext
+
+# Extract a file from another branch
+git show some-branch:some-file.ext
+git show some-branch:some-file.ext > deleteme.ext
