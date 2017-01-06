@@ -5,6 +5,12 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 # set explicit cache path
 set -gx XDG_CACHE_HOME $HOME/.cache
 
+# test if STDOUT is attached to TTY or a pipe - if so: exit
+test -t 1 -o -p /dev/stdin; or exit
+
+# test if run within vim - if so: exit
+test -z "$VIMRUNTIME"; or exit
+
 # only run if tty is interactive and FISH_DONT_INIT isn't set
 if test -t 0 -a -z "$FISH_DONT_INIT"
 
