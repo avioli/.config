@@ -1,0 +1,135 @@
+# To set your identify:
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+# To set your editor:
+git config --global core.editor emacs
+
+# To enable color:
+git config --global color.ui true
+
+# To stage all changes for commit:
+git add --all
+
+# To commit staged changes
+git commit -m "Your commit message"
+
+# To edit previous commit message
+git commit --amend
+# Fix your typo
+# Stage the newly fixed file via git add some-fixed-file.ext
+# Run git commit --amend which would add the most recent changes to your latest commit. It will also give you a chance to edit the commit message
+# Push the clean branch to remote, when ready
+
+# To removed staged and working directory changes
+git reset --hard  {{some-commit-hash}} # Return to a particular point in history.
+                                       # All changes made after this commit are discarded.
+git reset {{some-commit-hash}}         # Return to a particular point in history.
+                                       # All changes made after this commit are moved "not yet staged for commit" stage.
+                                       # Meaning you would have to run git add . and git commit to add them back in.
+git reset --soft {{some-commit-hash}}  # Return to a particular point in history.
+                                       # All changes made after this commit are moved to "staged for commit" stage.
+                                       # Meaning you only need to run git commit to add them back in.
+# Common use cases that I find myself using the reset are bellow:
+# I want to forget all the changes I’ve made, clean start 
+git reset --hard HEAD (Most common)
+# I want to edit, re-stage and re-commit files in some different order
+git reset {{some-start-point-hash}}
+# I just want to re commit past 3 commits, as one big commit
+git reset --soft {{some-start-point-hash}}
+
+# To remove untracked files
+git clean -f -d
+
+# To remove untracked and ignored files
+git clean -f -d -x
+
+# To push to the tracked master branch:
+git push origin master
+
+# To push to a specified repository:
+git push git@github.com:username/project.git
+
+# To delete the branch "branch_name"
+git branch -D branch_name
+
+# To see who commited which line in a file
+git blame filename
+
+# To sync a fork with the master repo:
+git remote add upstream git@github.com:name/repo.git    # Set a new repo
+git remote -v                                           # Confirm new remote repo
+git fetch upstream                                      # Get branches
+git branch -va                                          # List local - remote branches
+git checkout master                                     # Checkout local master branch
+git checkout -b new_branch                              # Create and checkout a new branch
+git merge upstream/master                               # Merge remote into local repo
+git show 83fb499                                        # Show what a commit did.
+git show 83fb499:path/fo/file.ext                       # Shows the file as it appeared at 83fb499.
+git diff branch_1 branch_2                              # Check difference between branches
+git log                                                 # Show all the commits
+git status                                              # Show the changes from last commit
+
+# Commit history of a set of files
+git log --pretty=email --patch-with-stat --reverse --full-index -- Admin\*.py > Sripts.patch
+
+# Import commits from another repo
+git --git-dir=../some_other_repo/.git format-patch -k -1 --stdout <commit SHA> | git am -3 -k
+
+# NEW additions:
+
+# Force git to first pull the changes, and then re-apply(rebase) your un-pushed commits on top of the latest version of the remote branch, as if they just took place
+git pull --rebase
+
+# Short status
+git status -s
+
+# Reset certain files to a commit
+git checkout forget-my-changes.ext
+git checkout some-branch-name file-name.ext
+git checkout {{some-commit-hash}} file-name.ext
+
+# Revert a commit, softly
+git revert -n # -n to not commit, but leave the changes
+
+# Diff the entire project (not just one file at a time) in a 3rd party diff tool
+git difftool -d # -d for the whole dirs, not just the files
+
+# Ignore the white space
+git diff -w
+git blame -w
+
+# Only add some changes from a file
+git add -p # interactively asks what to add. use ? to check the options
+
+# Get a list of all the remote branches, and the list of last commits made on those branches
+git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'
+
+# Stash only some files
+git stash -p # interactively asks what to stash. use ? to check the options
+
+# or
+# 1. Add the files that you DO NOT want to get stashed (i.e. `git add file1.ext file2.ext`)
+# 2. Call `git stash --keep-index`. It will only stash files that have not been added.
+git stash —keep-index
+# 3. Call `git reset` to un-stage the added files and continue your work.
+
+# Log
+git log --oneline --graph
+# --author="Author Name" – Only show commits made by a certain author
+# --name-only            – Only show names of files that changed
+# --oneline              – Show commit data compressed to one line
+# --graph                – Show dependency tree for all commits
+# --reverse              – Show commits in reverse order (Oldest commit first)
+# --after                – Show all commits that happened after certain date
+# --before               – Show all commits that happened before certain data
+
+# Log actual changes in a file
+git log -p {{filename}}
+
+# Only Log changes for some specific lines in a file
+git log -L 1,1:some-file.ext
+
+# Extract a file from another branch
+git show some-branch:some-file.ext
+git show some-branch:some-file.ext > deleteme.ext

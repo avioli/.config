@@ -1,3 +1,16 @@
 set vertical-split = horizontal
+
+# copy commit hash
 bind generic 9 !@sh -c "/bin/echo -n %(commit) | pbcopy"
+
+# amend last commit
 bind generic + !git commit --amend
+
+# quickly jump to next diff chunk in the stage view
+bind stage <Enter> :/^@@
+
+# disable git-gc
+bind generic G none
+
+# revert to selected commit
+bind main ! !git revert -n %(commit)

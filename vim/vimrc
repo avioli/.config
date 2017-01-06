@@ -1,0 +1,36 @@
+""""""""""""""
+""" ViM config
+""""""""""""""
+
+" skip init for vim-tiny or vim-small
+if !1 | finish | endif
+
+" be iMproved (keep around, since starting with -u doesn't unset compatible)
+if has('vim_starting') | if &compatible | set nocompatible | endif | endif
+
+try | execute "source $XDG_CONFIG_HOME/vim/plugins.vim" | catch | endtry
+try | execute "source $XDG_CONFIG_HOME/vim/sensible.vim" | catch | endtry
+
+" load all my init scripts in whatever order
+for f in split(glob("$XDG_CONFIG_HOME/vim/init/*.vim"), '\n') | exe 'source' f | endfor
+
+" NOTE: after loading a ton of init scripts inspect startuptime via:
+" vim --satrtuptime ~/.vim-startuptime ~/.vim-startuptime
+
+" change the <leader> key from \ to ,
+let mapleader = ","
+
+" highlight current line
+set cursorline
+
+" custom autocmds
+augroup savepos
+  autocmd!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup end
+
+" vim:set ft=vim et sw=2:

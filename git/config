@@ -21,3 +21,11 @@
 	branch = auto
 [push]
 	default = simple
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	trustExitCode = true
