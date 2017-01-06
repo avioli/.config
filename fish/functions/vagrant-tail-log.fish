@@ -1,4 +1,4 @@
-function vagrant-tail-log -d "Run vagrant ssh -c 'tail -f /var/log/apache2/HOSTNAME_error.log'"
+function vagrant-tail-log -d "Run vagrant ssh -c 'sudo tail -f /var/log/apache2/HOSTNAME_error.log'"
   set -l FQDNAME
 
   if count $argv >/dev/null
@@ -15,6 +15,6 @@ function vagrant-tail-log -d "Run vagrant ssh -c 'tail -f /var/log/apache2/HOSTN
     set FQDNAME $PARAMS[1]"."$PARAMS[2]
   end
 
-  vagrant ssh -c 'tail -f /var/log/apache2/'$FQDNAME'_error.log'
+  vagrant ssh -c 'sudo tail -f /var/log/apache2/'$FQDNAME'_error.log'
 end
 

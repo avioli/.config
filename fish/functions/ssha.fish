@@ -14,6 +14,11 @@ function ssha
     return 1
   end
 
+  if [ "$argv[1]" = "e" ]
+    eval "$EDITOR" "$ssha_dir/$ssharc"
+    return
+  end
+
   if [ "$ssha_dir" != "$PWD" ]; echo "Using $ssha_dir/$ssharc"; end
 
   set -l line
