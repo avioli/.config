@@ -11,6 +11,9 @@ if test -t 0 -a -z "$FISH_DONT_INIT"
 # set default editor
 set -gx EDITOR vim
 
+# add rustc and cargo to path
+set -gx PATH $HOME/.cargo/bin $PATH
+
 # add pear to path
 set -gx PATH ~/pear/bin $PATH
 
@@ -90,6 +93,12 @@ else
 end
 
 test -e $XDG_CONFIG_HOME/fish/config.local.fish; and . $XDG_CONFIG_HOME/fish/config.local.fish
+
+# PHP composer
+set -gx PATH ~/.composer/vendor/bin $PATH
+
+# yarn
+set -gx PATH ~/.yarn/bin $PATH
 
 # fisherman
 for file in ~/.config/fish/conf.d/*.fish
