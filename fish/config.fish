@@ -16,7 +16,8 @@ set -gx PATH ~/pear/bin $PATH
 
 # add android sdk tools to path
 #set -gx PATH ~/android-sdk-macosx/platform-tools $PATH
-set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
+#set -gx PATH ~/Library/Android/sdk/platform-tools $PATH
+test -z "$ANDROID_HOME" -a -e /usr/local/opt/android-sdk; and set -gx ANDROID_HOME /usr/local/opt/android-sdk
 
 # add racket to path
 set -gx PATH ~/Applications/Racket\ v6.4/bin $PATH
