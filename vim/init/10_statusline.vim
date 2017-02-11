@@ -28,10 +28,10 @@ set statusline +=\ %P                " Top/Bot/All/%
 set statusline +=\                   " end padding
 
 "display a warning if &et is wrong, or we have mixed-indenting
-set statusline+=%#error#
-set statusline+=%{StatuslineTabWarning()}
-set statusline+=%{StatuslineTrailingSpaceWarning()}
-set statusline+=%*
+set statusline +=%#error#            " error color
+set statusline +=%{StatuslineTabWarning()}
+set statusline +=%{StatuslineTrailingSpaceWarning()}
+set statusline +=%*                  " clear color
 
 function! IsHls()
 	return ''.(&hls?'H':'').''
