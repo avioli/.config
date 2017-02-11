@@ -17,7 +17,11 @@ let g:syntastic_check_on_wq = 0
 " Example: let g:syntastic_<filetype>_checkers = ['<checker-name>']
 " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 " let g:syntastic_python_checkers = ['pylint']
+
+" Javascript
 let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_exec = "happiness"
+let g:syntastic_javascript_standard_generic = 1
 
 " Sometimes when using both vim-go and syntastic Vim will start lagging while
 " saving and opening files. The following fixes this:
