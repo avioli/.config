@@ -5,6 +5,9 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 # set explicit cache path
 set -gx XDG_CACHE_HOME $HOME/.cache
 
+# silent kq_init warn in tmux
+set -gx EVENT_NOKQUEUE 1
+
 # test if STDOUT is attached to TTY or a pipe - if so: exit
 test -t 1 -o -p /dev/stdin; or exit
 
