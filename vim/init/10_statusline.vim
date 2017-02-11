@@ -1,7 +1,10 @@
 set laststatus=2                     " always show statusline
 
+hi User1 ctermbg=black ctermfg=grey  guibg=black guifg=grey
+hi User2 ctermbg=grey  ctermfg=black guibg=grey  guifg=black
+
 set statusline=
-set statusline +=%0*\                " white on black + padding
+set statusline +=%2*\                " white on black + padding
 set statusline +=%n                  " buffer number
 set statusline +=\ %{&ff}            " file format (dos/unix...)
 set statusline +=%Y                  " file type
@@ -15,7 +18,7 @@ set statusline +=%m                  " modified flag
 set statusline +=%r                  " readonly flag
 set statusline +=%h                  " help flag
 set statusline +=%=                  " left/right separator
-set statusline +=%0*\                " white on black + padding
+set statusline +=%2*\                " white on black + padding
 set statusline +=r:%5l               " current line num
 set statusline +=/%L                 " num total lines
 set statusline +=\ (%3p%%)           " current line pos %
