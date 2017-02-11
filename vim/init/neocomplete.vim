@@ -82,7 +82,7 @@ endif
 if !exists('g:neocomplete#sources#omni#functions')
   let g:neocomplete#sources#omni#functions = {}
 endif
-let g:neocomplete#sources#omni#functions.go = 'gocomplete#Complete'
+" let g:neocomplete#sources#omni#functions.go = 'gocomplete#Complete'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
