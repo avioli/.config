@@ -1,3 +1,7 @@
+"""""""""""""""
+""" Vim Plugins
+"""""""""""""""
+
 " Check and download plug.vim
 if findfile('autoload/plug.vim', &rtp) ==# ''
   echo 'No vim-plug... installing'
