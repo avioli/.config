@@ -1,6 +1,5 @@
 set laststatus=2                     " always show statusline
 
-
 set statusline=
 set statusline +=%0*\                " white on black + padding
 set statusline +=%n                  " buffer number
@@ -22,6 +21,7 @@ set statusline +=/%L                 " num total lines
 set statusline +=\ (%3p%%)           " current line pos %
 set statusline +=\ c:%5c%V           " virtual column number
 set statusline +=\ 0x%04B            " character under cursor
+set statusline +=\ %{v:register}     " current register
 set statusline +=\ %P                " Top/Bot/All/%
 set statusline +=\                   " end padding
 
