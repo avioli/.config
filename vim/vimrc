@@ -23,6 +23,9 @@ for f in split(glob("$XDG_CONFIG_HOME/vim/init/*.vim"), '\n') | exe 'source' f |
 " highlight current line
 set cursorline
 
+" switch to 256 colors mode
+set t_Co=256
+
 " use fzf
 "set rtp+=/usr/local/opt/fzf
 
