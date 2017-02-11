@@ -1,11 +1,3 @@
-function! IsHls()
-	return ''.(&hls?'H':'').''
-endfunction
-
-function! Enc()
-	return ''.(&fenc!=''?&fenc:&enc).''
-endfunction
-
 set laststatus=2                     " always show statusline
 
 set statusline=
@@ -22,7 +14,7 @@ set statusline +=%<%F                " full path
 set statusline +=%m                  " modified flag
 set statusline +=%r                  " readonly flag
 set statusline +=%h                  " help flag
-set statusline +=%=                  " right align
+set statusline +=%=                  " left/right separator
 set statusline +=%0*\                " white on black + padding
 set statusline +=r:%5l               " current line num
 set statusline +=/%L                 " num total lines
@@ -31,3 +23,17 @@ set statusline +=\ c:%5c%V           " virtual column number
 set statusline +=\ 0x%04B            " character under cursor
 set statusline +=\ %P                " Top/Bot/All/%
 set statusline +=\                   " end padding
+
+"display a warning if &et is wrong, or we have mixed-indenting
+set statusline+=%#error#
+set statusline+=%{StatuslineTabWarning()}
+set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=%*
+
+function! IsHls()
+	return ''.(&hls?'H':'').''
+endfunction
+
+function! Enc()
+	return ''.(&fenc!=''?&fenc:&enc).''
+endfunction

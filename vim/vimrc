@@ -26,6 +26,10 @@ set cursorline
 " switch to 256 colors mode
 set t_Co=256
 
+" show invisible chars - tabs, spaces...
+set list
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+
 " use fzf
 "set rtp+=/usr/local/opt/fzf
 
