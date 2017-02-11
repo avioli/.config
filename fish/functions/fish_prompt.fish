@@ -48,6 +48,10 @@ function fish_prompt --description 'Write out the prompt'
         # New line
         echo
 
+        if set -q GIT_AUTHOR_DATE
+		echo "$GIT_AUTHOR_DATE"
+	end
+
         # Suffix
         echo -n -s $suffix ' '
 end
