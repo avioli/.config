@@ -1,0 +1,14 @@
+*/
+!.gitignore
+!brew/
+!cheat/
+!fish/
+!git/
+!keybase/
+!macosx/
+!mpw/
+!task/
+!tig/
+!tmux/
+!transmission/
+!vim/
