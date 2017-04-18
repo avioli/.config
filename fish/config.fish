@@ -31,8 +31,6 @@ else
   set -gx EDITOR vim
 end
 
-set -gx GIT_EDITOR $EDITOR
-
 # add rustc and cargo to path
 set -gx PATH $HOME/.cargo/bin $PATH
 
