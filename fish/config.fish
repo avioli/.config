@@ -24,8 +24,12 @@ test -z "$VIMRUNTIME"; or exit
 # only run if tty is interactive and FISH_DONT_INIT isn't set
 if test -t 0 -a -z "$FISH_DONT_INIT"
 
-# set default editor
-set -gx EDITOR vim
+# use kak if available
+if hash kak 2>/dev/null
+  set -gx EDITOR kak
+else
+  set -gx EDITOR vim
+end
 
 # add rustc and cargo to path
 set -gx PATH $HOME/.cargo/bin $PATH
