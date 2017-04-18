@@ -20,8 +20,10 @@ let g:syntastic_check_on_wq = 0
 
 " Javascript
 let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_javascript_standard_exec = "happiness"
-let g:syntastic_javascript_standard_generic = 1
+if filereadable($HOME . '/bin/npm-exec-standard')
+	let g:syntastic_javascript_standard_exec = $HOME . '/bin/npm-exec-standard'
+endif
+"let g:syntastic_javascript_standard_generic = 1
 
 " Sometimes when using both vim-go and syntastic Vim will start lagging while
 " saving and opening files. The following fixes this:
