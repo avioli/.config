@@ -4,6 +4,9 @@
 "
 " https://github.com/vim-syntastic/syntastic#3-recommended-settings
 """""""""""
+if !exists('g:loaded_syntastic_plugin')
+    finish
+endif
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
