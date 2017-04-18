@@ -11,6 +11,9 @@ set -gx EVENT_NOKQUEUE 1
 # test if STDOUT is attached to TTY or a pipe - if so: exit
 test -t 1 -o -p /dev/stdin; or exit
 
+# set `pass` store location
+set -gx PASSWORD_STORE_DIR $XDG_CONFIG_HOME/password-store
+
 # test if run within vim - if so: exit
 test -z "$VIMRUNTIME"; or exit
 
