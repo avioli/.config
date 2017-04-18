@@ -60,3 +60,7 @@ Ctrl-a %
 
 # Split windows vertically:
 Ctrl-a "
+
+# Change prefix key
+# =================
+set-option -g prefix C-b
