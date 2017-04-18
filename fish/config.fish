@@ -7,7 +7,7 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 
 # make my life a bit simpler
 test -z "$CDPATH"; and set -gx CDPATH .
-set -gx CDPATH $CDPATH $HOME/Projects $HOME/XCode
+set -gx CDPATH $CDPATH $HOME/MyProjects $HOME/Projects $HOME/XCode
 
 # silent kq_init warn in tmux
 set -gx EVENT_NOKQUEUE 1
