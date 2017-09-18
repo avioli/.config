@@ -20,8 +20,8 @@ function fish_prompt --description 'Write out the prompt'
                 set suffix '>'
         end
 
-	# Define a separator
-	set -l SEP '·'
+        # Define a separator
+        set -l SEP '·'
 
         # TMUX
         if set -q TMUX
@@ -49,8 +49,8 @@ function fish_prompt --description 'Write out the prompt'
         echo
 
         if set -q GIT_AUTHOR_DATE
-		echo "$GIT_AUTHOR_DATE"
-	end
+                echo "$GIT_AUTHOR_DATE"
+        end
 
         # Suffix
         echo -n -s $suffix ' '
