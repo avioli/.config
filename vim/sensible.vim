@@ -146,4 +146,7 @@ inoremap <C-W> <C-G>u<C-W>
 " read modelines (see last line of this very file)
 set modeline
 
+" put splits below current buffer (esp. Scratch when autocompleting)
+set splitbelow
+
 " vim:set ft=vim et sw=2:
