@@ -1,7 +1,7 @@
 function mpw-init -d "Initialises mpw defaults"
   # check if we've got the config dir
   if test -d ~/.config/mpw
-    set -q MPW_SITENAMES; or set -gx MPW_SITENAMES ~/.config/mpw/sites
+    set -q MPW_SITENAMES; or set -x MPW_SITENAMES ~/.config/mpw/sites
 
     if hash openssl 2>/dev/null
       if test ! -f "$MPW_SITENAMES" -a -f "$MPW_SITENAMES.aes256"
