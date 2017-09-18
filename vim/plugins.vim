@@ -34,6 +34,12 @@ Plug 'fatih/vim-go'
 " Grepper
 Plug 'mhinz/vim-grepper'
 
+" Python autocompletion
+Plug 'davidhalter/jedi-vim'
+
+" Aligning up text
+Plug 'godlygeek/tabular'
+
 " NOTE: Add plugins to &runtimepath
 call plug#end()
 
