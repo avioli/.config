@@ -9,7 +9,7 @@ set -x XDG_CACHE_HOME $HOME/.cache
 #########
 
 if isatty
-  if test "$TERM" != screen
+  if test "$TERM" != screen -a -z "$INSIDE_EMACS"
     if hash tmux 2>/dev/null
       if not tmux ls 2>/dev/null
         set -x SHELL_OLD $SHELL
