@@ -14,3 +14,6 @@ bind generic G none
 
 # revert to selected commit
 bind main ! !git revert -n %(commit)
+
+set status-show-untracked-dirs = yes		# Show files in untracked directories? (status)
+set status-show-untracked-files = yes		# Show untracked files? (status)
