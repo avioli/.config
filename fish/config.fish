@@ -32,6 +32,14 @@ if test -n "$SHELL_OLD"
   set -x SHELL $SHELL_OLD
 end
 
+
+### LOCALE
+##########
+
+set -x LC_ALL en_AU.utf-8
+set -x LANG en_AU.utf-8
+
+
 ### PATHS
 #########
 
