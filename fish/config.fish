@@ -108,6 +108,9 @@ if test -r $XDG_CONFIG_HOME/task/local-config.fish
   . $XDG_CONFIG_HOME/task/local-config.fish
 end
 
+# ls
+set -x LSCOLORS cxfxcxdxbxegedabagacad
+
 ### LOCAL CONFIG
 ################
 
