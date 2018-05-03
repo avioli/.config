@@ -49,6 +49,11 @@ set -x CDPATH . $HOME/MyProjects $HOME/Projects $HOME/XCode $GOPATH/src/github.c
 
 set -x PATH $GOPATH/bin $HOME/.cargo/bin $HOME/bin $PATH
 
+### ANDROID DEV TOOLS
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -x PATH $PATH $ANDROID_HOME/tools
+set -x PATH $PATH $ANDROID_HOME/platform-tools
+
 ### CONFIGS
 ###########
 
